@@ -1,7 +1,9 @@
 package com.sw2p3.recetario;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,8 +27,15 @@ class RecetarioController {
   // Aggregate root
   // tag::get-aggregate-root[]
   @GetMapping("/recetarios")
-  List<Recetario> all() {
-    return repository.findAll();
+  CollectionModel<EntityModel<Recetario>> all() {
+
+    List<EntityModel<Recetario>> recetarios = repository.findAll().stream()
+        .map(recetario -> EntityModel.of(recetario,
+        		WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(RecetarioController.class).one(recetario.getId())).withSelfRel(),
+        		WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(RecetarioController.class).all()).withRel("recetarios")))
+        .collect(Collectors.toList());
+
+    return CollectionModel.of(recetarios, WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(RecetarioController.class).all()).withSelfRel());
   }
   // end::get-aggregate-root[]
 
