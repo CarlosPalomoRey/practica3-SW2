@@ -1,5 +1,6 @@
 package com.sw2p3.recetario;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,12 +31,23 @@ public class Receta {
 	@Column
 	private String instrucciones;
 	
-	@ManyToMany(mappedBy = "ingredientes")
+	@ManyToMany(mappedBy = "recetas")
 	private List<Ingrediente> ingredientes;
 	
 	@ManyToOne
     @JoinColumn(name="recetario_id")
     private Recetario recetario;
+	
+	public Receta() {
+        super();
+        ingredientes = new ArrayList<>();
+    }
+
+    public Receta(String nombreReceta) {
+        super();
+        this.nombreReceta = nombreReceta;
+        ingredientes = new ArrayList<>();
+    }
 
 	@Override
 	public int hashCode() {

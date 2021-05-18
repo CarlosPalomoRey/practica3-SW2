@@ -5,5 +5,5 @@ import org.springframework.data.repository.query.Param;
 public interface IngredienteRepository extends JpaRepository<Ingrediente, Long>{
 	 //http://localhost:8080/authors/search
     //http://localhost:8080/authors/search/findByName?name=J.R.R. Tolkien
-    Ingrediente findByName(@Param("name") String name);
+    Ingrediente findByName(String nombreIngrediente);
 }

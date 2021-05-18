@@ -1,4 +1,4 @@
-package com.sw2.libraries;
+package com.sw2p3.recetario;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,19 +17,19 @@ class LoadDatabase {
         return args -> {
             Recetario rec = new Recetario();
             recRepo.save(rec);
-            recetario.setName("Recetario 1");
-            recetario.setTipo("asdfg");
+            rec.setName("Recetario 1");
+            rec.setTipo("asdfg");
             recRepo.save(rec);
             
             Receta receta = new Receta();
             recetaRepo.save(receta);
-            receta.setDificultad("Fácil");
+            receta.setDificultad("Facil");
             receta.setTipo("Americana");
-            receta.setNombre("Hot Dog");
+            receta.setNombreReceta("Hot Dog");
             receta.setInstrucciones("Meter la salchicha en el pan");
             
             receta.setRecetario(rec);
-            recetario.addReceta(receta);
+            rec.addReceta(receta);
             recRepo.save(rec);
             recetaRepo.save(receta);
             
@@ -39,6 +39,7 @@ class LoadDatabase {
             receta.addIngrediente(ing);
             recetaRepo.save(receta);
             ingRepo.save(ing);
+            log.info("Preloading " + ingRepo.save(ing));
             
             Ingrediente ing2 = new Ingrediente();
             ing.setNombreIngrediente("Pan Hot Dog");

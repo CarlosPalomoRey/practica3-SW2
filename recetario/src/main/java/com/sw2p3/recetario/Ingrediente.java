@@ -1,5 +1,6 @@
 package com.sw2p3.recetario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,14 +26,15 @@ class Ingrediente {
 	private String cantidad;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	 @JoinTable(name = "ingrediente_receta", 
-     joinColumns = @JoinColumn(name = "receta_id", referencedColumnName = "id"), 
-     inverseJoinColumns = @JoinColumn(name = "ingrediente_id", 
-     referencedColumnName = "id"))
-	
+	@JoinTable(name = "ingrediente_receta", 
+	    joinColumns = @JoinColumn(name = "receta_id", referencedColumnName = "id"), 
+	    inverseJoinColumns = @JoinColumn(name = "ingrediente_id", 
+	    referencedColumnName = "id"))
+	private List<Receta> recetas;
 	
 	public Ingrediente() {
 		super();
+		recetas = new ArrayList<>();
 	}
 	
 
@@ -40,6 +42,7 @@ class Ingrediente {
 		super();
 		this.nombreIngrediente = nombreIngrediente;
 		this.cantidad = cantidad;
+		recetas = new ArrayList<>();
 	}
 
 
