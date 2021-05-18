@@ -1,6 +1,6 @@
 package com.sw2p3.recetario;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,9 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 
 
 @Entity
@@ -34,7 +31,7 @@ public class Receta {
 	private String instrucciones;
 	
 	@ManyToMany(mappedBy = "ingredientes")
-	private ArrayList<Ingrediente> ingredientes;
+	private List<Ingrediente> ingredientes;
 	
 	@ManyToOne
     @JoinColumn(name="recetario_id")
