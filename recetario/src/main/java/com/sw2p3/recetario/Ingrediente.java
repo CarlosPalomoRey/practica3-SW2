@@ -29,7 +29,7 @@ class Ingrediente {
      joinColumns = @JoinColumn(name = "receta_id", referencedColumnName = "id"), 
      inverseJoinColumns = @JoinColumn(name = "ingrediente_id", 
      referencedColumnName = "id"))
-	private List<Receta> recetas;
+	
 	
 	public Ingrediente() {
 		super();
@@ -72,14 +72,7 @@ class Ingrediente {
 		this.cantidad = cantidad;
 	}
 
-	public List<Receta> getRecetas() {
-		return recetas;
-	}
 
-
-	public void setRecetas(List<Receta> recetas) {
-		this.recetas = recetas;
-	}
 
 
 	@Override

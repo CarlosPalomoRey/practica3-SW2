@@ -87,6 +87,14 @@ public class Receta {
 	public void setNombreReceta(String nombreReceta) {
 		this.nombreReceta = nombreReceta;
 	}
+	
+	public String getInstrucciones() {
+		return instrucciones;
+	}
+
+	public void setInstrucciones(String instrucciones) {
+		this.instrucciones = instrucciones;
+	}
 
 
 	public Recetario getRecetario() {
