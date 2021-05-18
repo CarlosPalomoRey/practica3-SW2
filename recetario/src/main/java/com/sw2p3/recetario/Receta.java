@@ -33,7 +33,7 @@ public class Receta {
 	@Column
 	private String instrucciones;
 	
-	@ManyToMany(mappedBy = "books")
+	@ManyToMany(mappedBy = "ingredientes")
 	private ArrayList<Ingrediente> ingredientes;
 	
 	@ManyToOne
@@ -55,6 +55,60 @@ public class Receta {
 			return false;
 		Receta other = (Receta) obj;
 		return id == other.id && Objects.equals(nombreReceta, other.nombreReceta);
+	}
+
+
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getDificultad() {
+		return dificultad;
+	}
+
+	public void setDificultad(String dificultad) {
+		this.dificultad = dificultad;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getNombreReceta() {
+		return nombreReceta;
+	}
+
+	public void setNombreReceta(String nombreReceta) {
+		this.nombreReceta = nombreReceta;
+	}
+
+
+	public Recetario getRecetario() {
+		return recetario;
+	}
+
+	public void setRecetario(Recetario recetario) {
+		this.recetario = recetario;
+	}
+
+	public void addIngrediente(Ingrediente ingrediente) {
+		ingredientes.add(ingrediente);
+    }
+
+
+
+	@Override
+	public String toString() {
+		return "Receta:  id=" + id  + ", nombreReceta=" + nombreReceta + "dificultad=" + dificultad + ", tipo=" + tipo;
 	}
 	
 	

@@ -61,8 +61,8 @@ class Recetario {
     this.tipo = tipo;
   }
 
-  public void addBook(Receta book) {
-	  recetas.add(book);
+  public void addReceta(Receta receta) {
+	  recetas.add(receta);
   }
   
 
@@ -95,4 +95,5 @@ public boolean equals(Object obj) {
   public String toString() {
     return "Recetario{" + "id=" + this.id + ", name='" + this.name + '\'' + ", tipo='" + this.tipo + '\'' + '}';
   }
+
 }
