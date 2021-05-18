@@ -63,7 +63,7 @@ class RecetarioController {
     return repository.findById(id)
       .map(recetario -> {
         recetario.setName(newRecetario.getName());
-        recetario.setRole(newRecetario.getRole());
+        recetario.setTipo(newRecetario.getTipo());
         return repository.save(recetario);
       })
       .orElseGet(() -> {

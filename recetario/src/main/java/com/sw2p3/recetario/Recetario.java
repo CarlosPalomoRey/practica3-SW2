@@ -1,6 +1,7 @@
 package com.sw2p3.recetario;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import pojos.Receta;
 
 @Entity
 class Recetario {
@@ -22,11 +22,18 @@ class Recetario {
   private String tipo;
   
   @OneToMany(mappedBy = "recetario")
-  private ArrayList<Receta> recetas;
+  private List<Receta> recetas;
+  
+  public Recetario() {
+      super();
+      recetas = new ArrayList<>();
+  }
   
   public Recetario(String name, String tipo) {
-    this.name = name;
-    this.tipo = tipo;
+	  super();
+	  this.name = name;
+	  this.tipo = tipo;
+	  recetas = new ArrayList<>();
   }
   
   
@@ -54,6 +61,9 @@ class Recetario {
     this.tipo = tipo;
   }
 
+  public void addBook(Receta book) {
+	  recetas.add(book);
+  }
   
 
   @Override
