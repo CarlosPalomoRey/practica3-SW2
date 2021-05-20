@@ -16,7 +16,7 @@ class LoadDatabase {
 
         return args -> {
             Recetario rec = new Recetario();
-            recRepo.save(rec);
+            //recRepo.save(rec);
             rec.setName("Recetario 1");
             rec.setTipo("asdfg");
             recRepo.save(rec);
@@ -33,6 +33,7 @@ class LoadDatabase {
             recRepo.save(rec);
             recetaRepo.save(receta);
             
+            
             Ingrediente ing = new Ingrediente();
             ing.setNombreIngrediente("Salchicha");
             ing.setCantidad("2");
@@ -47,7 +48,6 @@ class LoadDatabase {
             receta.addIngrediente(ing2);
             recetaRepo.save(receta);
             ingRepo.save(ing2);
-          
             
         };
     }

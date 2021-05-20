@@ -1,7 +1,7 @@
 package com.sw2p3.recetario;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-interface RecetarioRepository extends JpaRepository<Recetario, Long> {
+interface RecetarioRepository extends CrudRepository<Recetario, Long> {
 
 }

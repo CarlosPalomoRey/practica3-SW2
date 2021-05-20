@@ -1,5 +1,5 @@
 package com.sw2p3.recetario;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface RecetaRepository extends JpaRepository<Receta, Long> { }
+public interface RecetaRepository extends CrudRepository<Receta, Long> { }
