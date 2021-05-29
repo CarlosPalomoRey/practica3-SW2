@@ -37,17 +37,20 @@ class LoadDatabase {
             Ingrediente ing = new Ingrediente();
             ing.setNombreIngrediente("Salchicha");
             ing.setCantidad("2");
+            ing.addReceta(receta);
             receta.addIngrediente(ing);
             recetaRepo.save(receta);
             ingRepo.save(ing);
             log.info("Preloading " + ingRepo.save(ing));
             
             Ingrediente ing2 = new Ingrediente();
-            ing.setNombreIngrediente("Pan Hot Dog");
-            ing.setCantidad("1");
+            ing2.setNombreIngrediente("Pan Hot Dog");
+            ing2.setCantidad("1");
+            ing2.addReceta(receta);
+            ingRepo.save(ing2);
             receta.addIngrediente(ing2);
             recetaRepo.save(receta);
-            ingRepo.save(ing2);
+            
             
         };
     }

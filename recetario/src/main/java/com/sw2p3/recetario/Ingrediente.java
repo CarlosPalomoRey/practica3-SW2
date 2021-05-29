@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
 import javax.persistence.JoinColumn;
 
 
@@ -25,7 +26,7 @@ class Ingrediente {
 	@Column
 	private String cantidad;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "ingrediente_receta", 
 	    joinColumns = @JoinColumn(name = "receta_id", referencedColumnName = "id"), 
 	    inverseJoinColumns = @JoinColumn(name = "ingrediente_id", 
@@ -76,6 +77,20 @@ class Ingrediente {
 	}
 
 
+
+
+	public List<Receta> getRecetas() {
+		return recetas;
+	}
+
+
+	public void setRecetas(List<Receta> recetas) {
+		this.recetas = recetas;
+	}
+	
+	public void addReceta(Receta receta) {
+		recetas.add(receta);
+    }
 
 
 	@Override
